@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { SearchBar } from "./components/SearchBar";
 import { MainCard } from "./components/MainCard";
+import Container from "../node_modules/@material-ui/core/Container";
+import "./App.css";
 import axios from "axios";
 
 interface AppProps {}
@@ -52,13 +54,15 @@ export const App: React.FC<AppProps> = () => {
   }, [userInputData]);
 
   return (
-    <div>
-      <SearchBar setUserInputData={setUserInputData} />
-      <MainCard
-        userInputData={userInputData}
-        tempData={tempData}
-        weatherData={weatherData}
-      />
+    <div className="App">
+    <Container maxWidth="sm">
+        <SearchBar setUserInputData={setUserInputData} />
+        <MainCard
+          userInputData={userInputData}
+          tempData={tempData}
+          weatherData={weatherData}
+        />
+      </Container>
     </div>
   );
 };
