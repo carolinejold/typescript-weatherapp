@@ -26,7 +26,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ setUserInputData }) => {
             marginTop: "0.4em",
             marginBottom: "0em",
             marginLeft: "0.2em",
-            textAlign: "left",
+            textAlign: "center",
             fontSize: "0.8em",
             color: "white",
           }}
@@ -34,29 +34,39 @@ export const SearchBar: React.FC<SearchBarProps> = ({ setUserInputData }) => {
           Please select a location
         </p>
         {/* <h1 style={{ marginBottom: '0.5em'}}>Weather</h1> */}
-        <form onSubmit={handleSubmit}>
-          <div style={{ display: "flex", alignItems: "stretch", marginBottom: '2em' }}>
-            <div className="dropdown-bar" style={{ width: "12em" }}>
-              <Select
-                isSearchable
-                autoFocus
-                defaultValue={selectedLocation}
-                onChange={setSelectedLocation}
-                options={locations}
-              />
-            </div>
-            <div>
-              <Button
-                variant="outlined"
-                color="default"
-                className="dropdown-submit"
-                type="submit"
-                value="Search"
-                style={{ color: "white", borderColor: 'whitesmoke' }}
-              >
-                Go
-              </Button>
-            </div>
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: "2em",
+            marginRight: "0em",
+          }}
+        >
+          <div
+            className="dropdown-bar"
+            style={{ margin: "auto", minWidth: "12em", alignSelf: "center" }}
+          >
+            <Select
+              isSearchable
+              autoFocus
+              defaultValue={selectedLocation}
+              onChange={setSelectedLocation}
+              options={locations}
+            />
+          </div>
+          <div>
+            <Button
+              variant="outlined"
+              color="default"
+              className="dropdown-submit"
+              type="submit"
+              value="Search"
+              style={{ color: "white", borderColor: "whitesmoke" }}
+            >
+              Go
+            </Button>
           </div>
         </form>
       </Container>

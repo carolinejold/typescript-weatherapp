@@ -55,7 +55,7 @@ export const App: React.FC<AppProps> = () => {
 
   return (
     <div className="App">
-    <Container maxWidth="sm">
+      <Container maxWidth="sm">
         <SearchBar setUserInputData={setUserInputData} />
         <MainCard
           userInputData={userInputData}
@@ -63,6 +63,7 @@ export const App: React.FC<AppProps> = () => {
           weatherData={weatherData}
         />
       </Container>
+      <footer style={{ color: 'whitesmoke', fontSize: '0.7em', marginTop: '7em'}}>© Caroline Old 2020</footer>
     </div>
   );
 };

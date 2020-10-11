@@ -11,3 +11,9 @@ body {
   margin: 1em;
   background-color: rgba(53, 60, 72, 1);
 } 
+
+@media only screen and (min-width: 370px) {
+  .dropdown-bar {
+    width: 25em;
+  }
+}
