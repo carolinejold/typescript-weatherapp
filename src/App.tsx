@@ -63,7 +63,11 @@ export const App: React.FC<AppProps> = () => {
           weatherData={weatherData}
         />
       </Container>
-      <footer style={{ color: 'whitesmoke', fontSize: '0.7em', marginTop: '7em'}}>© Caroline Old 2020</footer>
+      <footer
+        style={{ color: "whitesmoke", fontSize: "0.7em", marginTop: "7em" }}
+      >
+        © Caroline Old 2020
+      </footer>
     </div>
   );
 };
