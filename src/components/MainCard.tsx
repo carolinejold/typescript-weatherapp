@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useState } from "react";
 import { DetailCard } from "./DetailCard";
 import rainImg from "../images/rainImg.jpg";

@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useState, useEffect } from "react";
 import { SearchBar } from "./components/SearchBar";
 import { MainCard } from "./components/MainCard";
@@ -42,7 +43,7 @@ export const App: React.FC<AppProps> = () => {
     async function fetchData() {
       if (userInputData[0] !== undefined) {
         let response = await axios(
-          `http://api.openweathermap.org/data/2.5/weather?q=${userInputData}&units=metric&appid=ef9e479b1c45f1cb5b2c66bd14fbece9`
+          `https://api.openweathermap.org/data/2.5/weather?q=${userInputData}&units=metric&appid=ef9e479b1c45f1cb5b2c66bd14fbece9`
         );
         let result = await response.data;
         setTempData(result.main);
