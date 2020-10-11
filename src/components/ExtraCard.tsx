@@ -3,7 +3,7 @@ import Container from "../../node_modules/@material-ui/core/Container";
 
 interface ExtraCardProps {
   tempData: {
-    temp?: number;
+    temp?: any;
     feels_like?: number;
     humidity?: number;
     temp_max?: number;
@@ -17,13 +17,14 @@ export const ExtraCard: React.FC<ExtraCardProps> = ({ tempData }) => {
       <Container
         maxWidth="sm"
         style={{
-          borderLeft: "solid 1px rgba(200, 200, 200, 0.8)",
-          borderRight: "solid 1px rgba(200, 200, 200, 0.8)",
-          borderBottom: "solid 1px rgba(200, 200, 200, 0.8)",
+          borderLeft: "solid 1px rgba(30, 30, 30, 0.5)",
+          borderRight: "solid 1px rgba(30, 30, 30, 0.5)",
+          borderBottom: "solid 1px rgba(30, 30, 30, 0.5)",
           borderRadius: "16px",
           padding: "2em",
-          boxShadow: "0px 1px 5px 0px rgba(235, 235, 235, 0.5)",
-          backgroundColor: "rgba(245, 245, 245, 0.5)"
+          boxShadow: "0px 5px 25px 0px rgba(30, 30, 30, 0.8)",
+          backgroundColor: "rgba(35, 40, 48, 1)",
+          color: 'whitesmoke'
         }}
       >
         <div>

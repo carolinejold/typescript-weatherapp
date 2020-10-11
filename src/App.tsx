@@ -8,7 +8,7 @@ import axios from "axios";
 interface AppProps {}
 
 interface TempProps {
-  temp?: number;
+  temp?: any;
   feels_like?: number;
   humidity?: number;
   temp_max?: number;

@@ -19,33 +19,23 @@ export const SearchBar: React.FC<SearchBarProps> = ({ setUserInputData }) => {
 
   return (
     <div>
-      <Container
-        maxWidth="sm"
-        style={{
-          borderTop: "solid 1px rgba(200, 200, 200, 0.8)",
-          borderLeft: "solid 1px rgba(200, 200, 200, 0.8)",
-          borderRight: "solid 1px rgba(200, 200, 200, 0.8)",
-          borderRadius: "16px",
-          padding: "2em",
-          boxShadow: "0px 2px 5px 0px rgba(235, 235, 235, 0.5)",
-          backgroundColor: "rgba(250, 250, 250, 1)",
-        }}
-      >
+      <Container maxWidth="sm">
         <p
           style={{
             visibility: selectedLocation.length === 0 ? "visible" : "hidden",
             marginTop: "0.4em",
             marginBottom: "0em",
             marginLeft: "0.2em",
-            textAlign: 'left',
-            fontSize: '0.8em'
+            textAlign: "left",
+            fontSize: "0.8em",
+            color: "white",
           }}
         >
-          Please select a location!
+          Please select a location
         </p>
         {/* <h1 style={{ marginBottom: '0.5em'}}>Weather</h1> */}
         <form onSubmit={handleSubmit}>
-          <div style={{ display: "flex", alignItems: "stretch" }}>
+          <div style={{ display: "flex", alignItems: "stretch", marginBottom: '2em' }}>
             <div className="dropdown-bar" style={{ width: "12em" }}>
               <Select
                 isSearchable
@@ -62,6 +52,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ setUserInputData }) => {
                 className="dropdown-submit"
                 type="submit"
                 value="Search"
+                style={{ color: "white", borderColor: 'whitesmoke' }}
               >
                 Go
               </Button>

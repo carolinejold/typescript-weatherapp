@@ -13,7 +13,7 @@ import Container from "../../node_modules/@material-ui/core/Container";
 interface MainCardProps {
   userInputData: string[];
   tempData: {
-    temp?: number;
+    temp?: any;
     feels_like?: number;
     humidity?: number;
     temp_max?: number;
@@ -36,16 +36,16 @@ export const MainCard: React.FC<MainCardProps> = ({
 
   const handleClick = () => {
     setToggleExtra(!toggleExtra);
-    console.log(toggleExtra);
   };
 
   const styles = {
     containerStyles: {
-      border: "solid 1px rgba(130, 130, 130, 0.8)",
+      border: "solid 1px rgba(100, 100, 100, 0.8)",
       borderRadius: "16px",
       padding: "2em",
-      boxShadow: "0px 5px 10px 0px rgba(235, 235, 235, 0.5)",
-      marginTop: "-0.5em",
+      boxShadow: "0px 5px 25px 0px rgba(30, 30, 30, 0.5)",
+      marginTop: "1em",
+      minHeight: "18em",
       color:
         typeof weatherData.description === "string" &&
         weatherData.description.includes("snow") === true
@@ -83,6 +83,9 @@ export const MainCard: React.FC<MainCardProps> = ({
     },
   };
 
+  const temperature = `${Math.round(tempData.temp)}`;
+  const degrees = `°C`;
+
   return (
     <div
       style={{
@@ -90,33 +93,48 @@ export const MainCard: React.FC<MainCardProps> = ({
       }}
     >
       <Container maxWidth="sm" style={styles.containerStyles}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "auto auto",
+            justifyContent: "spaceAround",
+          }}
+        >
+          <div>
+            <h2 style={{ paddingBottom: "1em" }}>{userInputData.toString()}</h2>
+            <p>It is</p>
+            <p style={{ fontSize: "3em" }}>
+              {typeof tempData.temp === "number"
+                ? temperature + degrees
+                : undefined}
+            </p>
+            <p>with</p>
+            <p style={{ fontSize: "1.2em" }} >
+              {weatherData.description === "few clouds"
+                ? `a ${weatherData.description}`
+                : weatherData.description}
+              !
+            </p>
+          </div>
 
-        <div style={{ display: 'flex' }}>
-          <h2 style={{ textAlign: "left" }}>
-            {userInputData.toString().toUpperCase()}
-          </h2>
-
-          <img
-            style={{
-              marginTop: "-1em",
-              filter: "contrast(200%)",
-              float: "right",
-            }}
-            src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
-            alt="weather icon"
-          ></img>
-    
-          <p>It is currently {tempData.temp}°C with{" "}
-          {weatherData.description === "few clouds"
-            ? `a ${weatherData.description}`
-            : weatherData.description}
-          !</p>
+          <div>
+            {" "}
+            <img
+              style={{
+                marginTop: "-1em",
+                filter: "contrast(200%)",
+                paddingTop: "1em",
+              }}
+              src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
+              alt="weather icon"
+            ></img>
+          </div>
         </div>
 
         <Button
           style={{
-            marginTop: "1em",
-            marginBottom: "-0.5em",
+            marginTop: "2em",
+            marginBottom: "-3.5em",
             backgroundColor: "white",
           }}
           variant="outlined"
@@ -134,7 +152,6 @@ export const MainCard: React.FC<MainCardProps> = ({
       >
         <ExtraCard tempData={tempData} />
       </div>
-
     </div>
   );
 };
