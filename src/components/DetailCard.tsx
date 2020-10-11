@@ -1,11 +1,11 @@
 import React from "react";
-import Container from "../../node_modules/@material-ui/core/Container";
+import Container from "@material-ui/core/Container";
 import feelsLike from "../images/feelsLike.png";
 import maxTemp from "../images/maxTemp.png";
 import minTemp from "../images/minTemp.png";
 import humidity from "../images/humidity.png";
 
-interface ExtraCardProps {
+interface DetailCardProps {
   tempData: {
     temp?: any;
     feels_like?: number;
@@ -15,7 +15,7 @@ interface ExtraCardProps {
   };
 }
 
-export const ExtraCard: React.FC<ExtraCardProps> = ({ tempData }) => {
+export const DetailCard: React.FC<DetailCardProps> = ({ tempData }) => {
   return (
     <div>
       <Container

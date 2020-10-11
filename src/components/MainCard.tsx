@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExtraCard } from "./ExtraCard";
+import { DetailCard } from "./DetailCard";
 import rainImg from "../images/rainImg.jpg";
 import cloudImg from "../images/cloudImg.jpg";
 import clearImg from "../images/clearImg.jpg";
@@ -150,7 +150,7 @@ export const MainCard: React.FC<MainCardProps> = ({
           visibility: toggleExtra === true ? "visible" : "hidden",
         }}
       >
-        <ExtraCard tempData={tempData} />
+        <DetailCard tempData={tempData} />
       </div>
     </div>
   );
