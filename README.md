@@ -1,7 +1,10 @@
 
 ## React & TypeScript Weather App
 
+https://react-typescript-weatherapp.netlify.app/
+
 ### To run the application:
+* Available to view via the link above
 * Clone the repository
 * Install dependencies (npm i)
 * Start the server (npm start)
