@@ -9,5 +9,6 @@
 
 ### Future improvements:
 * Google Maps API Search
+* Refactor
 * Change background/images based upon result
 * Work on UX/UI
