@@ -101,7 +101,7 @@ export const MainCard: React.FC<MainCardProps> = ({
           }}
         >
           <div>
-            <h2 style={{ paddingBottom: "1em" }}>{userInputData.toString()}</h2>
+            <h2 style={{ paddingBottom: "0.5em", fontSize: '1.8em', fontWeight: 'normal' }}>{userInputData.toString()}</h2>
             <p>It is</p>
             <p style={{ fontSize: "3em" }}>
               {typeof tempData.temp === "number"
