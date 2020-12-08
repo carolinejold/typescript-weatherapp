@@ -37,3 +37,7 @@ export interface MainCardProps {
     weatherData: Weather;
     tempData: Temp;
   }
+
+  export interface DetailCardProps {
+    tempData: Temp;
+  }

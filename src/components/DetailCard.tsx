@@ -5,16 +5,7 @@ import feelsLike from "../images/feelsLike.png";
 import maxTemp from "../images/maxTemp.png";
 import minTemp from "../images/minTemp.png";
 import humidity from "../images/humidity.png";
-
-interface DetailCardProps {
-  tempData: {
-    temp?: any;
-    feels_like?: number;
-    humidity?: number;
-    temp_max?: number;
-    temp_min?: number;
-  };
-}
+import { DetailCardProps } from "../types/types";
 
 export const DetailCard: React.FC<DetailCardProps> = ({ tempData }) => {
   return (
