@@ -10,30 +10,14 @@ import snowImg from "../images/snowImg.jpg";
 import mistImg from "../images/mistImg.jpg";
 import Button from "../../node_modules/@material-ui/core/Button";
 import Container from "../../node_modules/@material-ui/core/Container";
-
-interface MainCardProps {
-  userInputData: string[];
-  tempData: {
-    temp?: any;
-    feels_like?: number;
-    humidity?: number;
-    temp_max?: number;
-    temp_min?: number;
-  };
-  weatherData: {
-    id?: number;
-    main?: string;
-    description?: string;
-    icon?: string;
-  };
-}
+import { MainCardProps } from "../types/types";
 
 export const MainCard: React.FC<MainCardProps> = ({
   userInputData,
   weatherData,
   tempData,
 }) => {
-  const [toggleExtra, setToggleExtra] = useState<boolean | any>(false);
+  const [toggleExtra, setToggleExtra] = useState<boolean>(false);
 
   const handleClick = () => {
     setToggleExtra(!toggleExtra);
@@ -84,7 +68,7 @@ export const MainCard: React.FC<MainCardProps> = ({
     },
   };
 
-  const temperature = `${Math.round(tempData.temp)}`;
+  const temperature = tempData.temp !== undefined ? `${Math.round(tempData.temp)}` : null;
   const degrees = `°C`;
 
   return (
@@ -102,7 +86,15 @@ export const MainCard: React.FC<MainCardProps> = ({
           }}
         >
           <div>
-            <h2 style={{ paddingBottom: "0.5em", fontSize: '1.8em', fontWeight: 'normal' }}>{userInputData.toString()}</h2>
+            <h2
+              style={{
+                paddingBottom: "0.5em",
+                fontSize: "1.8em",
+                fontWeight: "normal",
+              }}
+            >
+              {userInputData.toString()}
+            </h2>
             <p>It is</p>
             <p style={{ fontSize: "3em" }}>
               {typeof tempData.temp === "number"
@@ -110,7 +102,7 @@ export const MainCard: React.FC<MainCardProps> = ({
                 : undefined}
             </p>
             <p>with</p>
-            <p style={{ fontSize: "1.2em" }} >
+            <p style={{ fontSize: "1.2em" }}>
               {weatherData.description === "few clouds"
                 ? `a ${weatherData.description}`
                 : weatherData.description}

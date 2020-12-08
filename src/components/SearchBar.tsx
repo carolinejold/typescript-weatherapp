@@ -3,18 +3,15 @@ import React, { useState } from "react";
 import Select from "react-select";
 import Button from "../../node_modules/@material-ui/core/Button";
 import Container from "../../node_modules/@material-ui/core/Container";
-
-interface SearchBarProps {
-  setUserInputData: Function;
-}
+import { SearchBarProps } from "../types/types";
 
 export const SearchBar: React.FC<SearchBarProps> = ({ setUserInputData }) => {
-  const [selectedLocation, setSelectedLocation] = useState<any>("");
+  const [selectedLocation, setSelectedLocation] = useState<any>([]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (selectedLocation !== undefined) {
-      setUserInputData([selectedLocation.label]);
+      setUserInputData(selectedLocation.label);
     }
   };
 
@@ -34,7 +31,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({ setUserInputData }) => {
         >
           Please select a location
         </p>
-        {/* <h1 style={{ marginBottom: '0.5em'}}>Weather</h1> */}
         <form
           onSubmit={handleSubmit}
           style={{

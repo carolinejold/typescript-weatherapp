@@ -8,13 +8,13 @@ import axios from "axios";
 import { Temp, Weather, tempDefault, weatherDefault } from "./types/types";
 
 export const App: React.FC = () => {
-  const [userInputData, setUserInputData] = useState<string[]>([]);
+  const [userInputData, setUserInputData] = useState<string>("");
   const [tempData, setTempData] = useState<Temp>(tempDefault);
   const [weatherData, setWeatherData] = useState<Weather>(weatherDefault);
 
   useEffect(() => {
     const fetchData = async () => {
-      if (userInputData[0] !== undefined) {
+      if (userInputData !== undefined) {
         let response = await axios(
           `https://api.openweathermap.org/data/2.5/weather?q=${userInputData}&units=metric&appid=ef9e479b1c45f1cb5b2c66bd14fbece9`
         );
