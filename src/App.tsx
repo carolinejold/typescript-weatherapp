@@ -5,42 +5,15 @@ import { MainCard } from "./components/MainCard";
 import Container from "../node_modules/@material-ui/core/Container";
 import "./App.css";
 import axios from "axios";
+import { Temp, Weather, tempDefault, weatherDefault } from "./types/types";
 
-interface AppProps {}
-
-interface TempProps {
-  temp?: any;
-  feels_like?: number;
-  humidity?: number;
-  temp_max?: number;
-  temp_min?: number;
-}
-
-interface WeatherProps {
-  id?: number;
-  main?: string;
-  description?: string;
-  icon?: string;
-}
-
-export const App: React.FC<AppProps> = () => {
+export const App: React.FC = () => {
   const [userInputData, setUserInputData] = useState<string[]>([]);
-  const [tempData, setTempData] = useState<TempProps>({
-    temp: undefined,
-    feels_like: undefined,
-    humidity: undefined,
-    temp_max: undefined,
-    temp_min: undefined,
-  });
-  const [weatherData, setWeatherData] = useState<WeatherProps>({
-    id: undefined,
-    main: undefined,
-    description: undefined,
-    icon: undefined,
-  });
+  const [tempData, setTempData] = useState<Temp>(tempDefault);
+  const [weatherData, setWeatherData] = useState<Weather>(weatherDefault);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       if (userInputData[0] !== undefined) {
         let response = await axios(
           `https://api.openweathermap.org/data/2.5/weather?q=${userInputData}&units=metric&appid=ef9e479b1c45f1cb5b2c66bd14fbece9`
@@ -50,7 +23,7 @@ export const App: React.FC<AppProps> = () => {
         setWeatherData(result.weather[0]);
         console.log(result);
       }
-    }
+    };
     fetchData();
   }, [userInputData]);
 
